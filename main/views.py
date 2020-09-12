@@ -26,11 +26,6 @@ class CategoryViewSet(ModelViewSet):
 
 
 class PostListView(ListAPIView):
-    # def get(self, request, *args, **kwargs):
-    #     pk = kwargs.get('pk')
-    #     posts = self.get_queryset(pk)
-    #     serializer = PostSerializer(posts, many=True)
-    #     return Response(serializer.data)
     serializer_class = PostSerializer
 
     def get_queryset(self):
@@ -38,7 +33,7 @@ class PostListView(ListAPIView):
         return Post.objects.filter(category_id=pk).select_related('author', 'category')
 
 
-class AuthorPostListView(ListAPIView):
+class AuthorPostListView(PostListView):
     def get_queryset(self):
         pk = self.kwargs.get('pk')
         return Post.objects.filter(author_id=pk).select_related('author', 'category')

@@ -282,7 +282,9 @@ REST_FRAMEWORK = {
     ),
     "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.AllowAny",),
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 100
+    'PAGE_SIZE': 100,
+    'DATETIME_FORMAT': "%d/%m/%Y %H:%M:%S",
+    'DATE_FORMAT': "%d/%m/%Y",
 }
 
 # django-cors-headers - https://github.com/adamchainz/django-cors-headers#setup
